@@ -40,11 +40,9 @@ Route::put('atualizar-pessoa/{id}','APIPessoasController@atualizarPessoa');
 //? Rota para deletar.
 Route::delete('deletar-pessoa/{id}','APIPessoasController@deletePessoa');
 
-
-
 //? Rotas services
 
 Route::get('listagem-search', 'ServicesAPIVtexController@listagemSearchVtex');
 
-
+//! Rota para testar 
 Route::get('test', 'APIPessoasController@test');
