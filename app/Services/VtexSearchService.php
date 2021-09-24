@@ -8,7 +8,7 @@ class VtexSearchService {
 
     use VtexConnect;
 
-    //? função que mostra apenas o Id, name e brand de todos os produtos
+    //? função que mostra apenas o Id, name e brand de todos os produtos da url
     public function searchServiceVtex($url)
     {
     
@@ -26,7 +26,6 @@ class VtexSearchService {
             ];
         })->values();
         
-
         /*return $result->filter(function($item){
             return $item['productId'] == "10015499";
         })->map(function($item){
@@ -42,6 +41,9 @@ class VtexSearchService {
         ->values();
 
         dd($result);*/
+    }
 
+    public function addProductSearchVtex($url, $productId){
+        
     }
 }

@@ -19,10 +19,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //? Rota de Teste retornando um array.
-Route::get('/message','APIController@showMessage')->middleware('iphone');
+Route::get('/message', 'APIController@showMessage')->middleware('iphone');
 
 //? Rota de teste action.
-Route::post('/action','APIController@showAction');
+Route::post('/action', 'APIController@showAction');
 
 //? Rotas para o controller Pessoas.
 
@@ -35,14 +35,16 @@ Route::get('listagem-pessoa/{id}', 'APIPessoasController@listagemDePessoasById')
 Route::post('cadastro-pessoa','APIPessoasController@cadastraPessoa');
 
 //? Rota para atualizar.
-Route::put('atualizar-pessoa/{id}','APIPessoasController@atualizarPessoa');
+Route::put('atualizar-pessoa/{id}', 'APIPessoasController@atualizarPessoa');
 
 //? Rota para deletar.
-Route::delete('deletar-pessoa/{id}','APIPessoasController@deletePessoa');
+Route::delete('deletar-pessoa/{id}', 'APIPessoasController@deletePessoa');
 
-//? Rotas services
-
+//? Rota service para listar atributos: productId, productName e brand de todos os produtos da URL
 Route::get('listagem-search', 'ServicesAPIVtexController@listagemSearchVtex');
+
+//? Rota service para atribuir um produto pelo productId na migration
+Route::post('product-add/{productId}', 'ServicesAPIVtexController@addSearchVtex');
 
 //! Rota para testar 
 Route::get('test', 'APIPessoasController@test');

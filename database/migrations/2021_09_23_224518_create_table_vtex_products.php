@@ -14,7 +14,7 @@ class CreateTableVtexProducts extends Migration
     public function up()
     {
         Schema::create('table_vtex_products', function (Blueprint $table) {
-            $table->integer('productId')->primary();
+            $table->id('productId');
             $table->string('productName', 150);
             $table->string('brand', 50);
             $table->timestamps();

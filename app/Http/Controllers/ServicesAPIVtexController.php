@@ -25,4 +25,9 @@ class ServicesAPIVtexController extends Controller
         return $result;
     }
 
+    public function addSearchVtex($productId){
+        $result = $this->endpointSearch->addProductSearchVtex("https://loja.chillibeans.com.br/api/catalog_system/pub/products/search?Rayban", $productId);
+
+        return $result;
+    }
 }
