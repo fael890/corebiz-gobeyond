@@ -44,7 +44,12 @@ Route::delete('deletar-pessoa/{id}', 'APIPessoasController@deletePessoa');
 Route::get('listagem-search', 'ServicesAPIVtexController@listagemSearchVtex');
 
 //? Rota service para atribuir um produto pelo productId na migration
-Route::post('product-add/{productId}', 'ServicesAPIVtexController@addSearchVtex');
+//Route::post('product-add/{productId}', 'ServicesAPIVtexController@addSearchVtex');
+
+Route::post('product-add', 'ServicesAPIVtexController@addSearchVtex');
+
+//? Rota teste
+Route::get('search-test', 'ServicesAPIVtexController@addSearchVtexTest');
 
 //! Rota para testar 
 Route::get('test', 'APIPessoasController@test');

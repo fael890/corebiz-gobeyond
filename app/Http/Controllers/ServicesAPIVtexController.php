@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Services\VtexSearchService;
 use Illuminate\Http\Request;
 
@@ -25,9 +26,13 @@ class ServicesAPIVtexController extends Controller
         return $result;
     }
 
-    public function addSearchVtex($productId){
-        $result = $this->endpointSearch->addProductSearchVtex("https://loja.chillibeans.com.br/api/catalog_system/pub/products/search?Rayban", $productId);
+    public function addSearchVtex(Request $request){
+        //$result = $this->endpointSearch->addProductSearchVtex("https://loja.chillibeans.com.br/api/catalog_system/pub/products/search?Rayban", $productId);
 
-        return $result;
+        Product::create($request->all());
+    }
+
+    public function addSearchVtexTest(){
+        return Product::all();
     }
 }
