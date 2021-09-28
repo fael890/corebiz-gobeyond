@@ -18,4 +18,5 @@ class Product extends Model
         'productName',
         'brand',
     ];
+    
 }

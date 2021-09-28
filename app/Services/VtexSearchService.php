@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Product;
 
 //? Classe de serviço Search, que utiliza a conexão.
 class VtexSearchService {
@@ -42,8 +43,39 @@ class VtexSearchService {
 
         dd($result);*/
     }
+    public function findProducts($url){
+        $product = $this->connectGet($url)->collect();
 
-    public function addProductSearchVtex($url, $productId){
-        
+        return $product->filter(function($item){
+            
+            return $item['productId'];
+
+        })->map(function($item){
+            $item['productId'] = (int) $item['productId'];
+    
+            return [
+                'productId' => $item['productId'],
+                'productName' => $item['productName'],
+                'brand' => $item['brand']
+            ];
+        })->values();
     }
+
+    public function findVtexProductById($url){
+        $product = $this->connectGet($url)->collect();
+
+        return $product->filter(function($item){
+            
+            return $item['productId'];
+
+        })->map(function($item){
+            $item['productId'] = (int) $item['productId'];
+    
+            return [
+                'productId' => $item['productId'],
+                'productName' => $item['productName'],
+                'brand' => $item['brand']
+            ];
+        })->values();
+    }      
 }

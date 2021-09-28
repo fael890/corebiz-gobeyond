@@ -46,7 +46,13 @@ Route::get('listagem-search', 'ServicesAPIVtexController@listagemSearchVtex');
 //? Rota service para atribuir um produto pelo productId na migration
 //Route::post('product-add/{productId}', 'ServicesAPIVtexController@addSearchVtex');
 
-Route::post('product-add', 'ServicesAPIVtexController@addSearchVtex');
+//? Adiciona todos os produtos da API para a Migrate
+Route::post('product-add', 'ServicesAPIVtexController@addAllProducts');
+
+Route::get('product-list-add/{productId}', 'ServicesAPIVtexController@addProductVtex');
+
+//? Rota para listagem de produtos da migrates
+Route::get('product-list', 'ServicesAPIVtexController@listProductVtex');
 
 //? Rota teste
 Route::get('search-test', 'ServicesAPIVtexController@addSearchVtexTest');
