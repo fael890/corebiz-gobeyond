@@ -25,20 +25,17 @@ class ServicesAPIVtexController extends Controller
         return $result;
     }
 
-    public function addAllProducts(Product $request)
+    public function addAllProducts()
     {
-        $request = $this->endpointSearch->findProducts("https://loja.chillibeans.com.br/api/catalog_system/pub/products/search?Rayban");
+        $result = $this->endpointSearch->findProducts("https://loja.chillibeans.com.br/api/catalog_system/pub/products/search?Rayban");
 
-        Product::create($request->all());
+        Product::create();
     }
 
-    public function addProductVtex($productId){
+    public function addProductVtex(){
         $product = $this->endpointSearch->findVtexProductById("https://loja.chillibeans.com.br/api/catalog_system/pub/products/search?Rayban");
-    
-        $product = Product::find($productId);
-        
-
-        return response()->json(['products'=>$product], 200);
+        return Product::create($product);
+        //return response()->json(['products'=>$product], 200);
     } 
     
     public function listProductVtex(){

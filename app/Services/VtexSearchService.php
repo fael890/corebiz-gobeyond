@@ -43,6 +43,7 @@ class VtexSearchService {
 
         dd($result);*/
     }
+    
     public function findProducts($url){
         $product = $this->connectGet($url)->collect();
 
