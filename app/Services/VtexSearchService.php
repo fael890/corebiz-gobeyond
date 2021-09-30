@@ -2,12 +2,14 @@
 
 namespace App\Services;
 
+use App\Models\Pessoas;
 use App\Models\Product;
 
 //? Classe de serviço Search, que utiliza a conexão.
 class VtexSearchService {
 
     use VtexConnect;
+    public $productId;
 
     //? função que mostra apenas o Id, name e brand de todos os produtos da url
     public function searchServiceVtex($url)
@@ -26,22 +28,6 @@ class VtexSearchService {
                 'brand' => $item['brand']
             ];
         })->values();
-        
-        /*return $result->filter(function($item){
-            return $item['productId'] == "10015499";
-        })->map(function($item){
-            
-            $item['productId'] = (int) $item['productId'];
-
-            return [
-                'productId' => $item['productId'],
-                'productName' => $item['productName'],
-                'brand' => $item['brand']
-            ];
-        })
-        ->values();
-
-        dd($result);*/
     }
     
     public function findProducts($url){
@@ -62,21 +48,29 @@ class VtexSearchService {
         })->values();
     }
 
-    public function findVtexProductById($url){
+    public function findVtexProductById($productId, $url){
         $product = $this->connectGet($url)->collect();
 
-        return $product->filter(function($item){
-            
-            return $item['productId'];
+        $this->productId = $productId;
 
+        $product = $product->filter(function($item){
+            return $item['productId'] === $this->productId;
         })->map(function($item){
             $item['productId'] = (int) $item['productId'];
-    
+
             return [
                 'productId' => $item['productId'],
                 'productName' => $item['productName'],
                 'brand' => $item['brand']
             ];
-        })->values();
+        })->first();
+
+        Product::create([
+            'productId' => $product['productId'],
+            'productName' => $product['productName'],
+            'brand' => $product['brand']
+        ]);
+        
+        return $product;
     }      
 }

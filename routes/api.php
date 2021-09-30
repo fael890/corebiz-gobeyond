@@ -40,21 +40,16 @@ Route::put('atualizar-pessoa/{id}', 'APIPessoasController@atualizarPessoa');
 //? Rota para deletar.
 Route::delete('deletar-pessoa/{id}', 'APIPessoasController@deletePessoa');
 
-//? Rota service para listar atributos: productId, productName e brand de todos os produtos da URL
+//Route::get('product-list-add', 'ServicesAPIVtexController@addAllProduct');
+
+//? Rota service para listar atributos: productId, productName e brand de todos os produtos da URL --> FUNCIONANDO
 Route::get('listagem-search', 'ServicesAPIVtexController@listagemSearchVtex');
 
-//? Rota service para atribuir um produto pelo productId na migration
-//Route::post('product-add/{productId}', 'ServicesAPIVtexController@addSearchVtex');
+//? Busca o produto na URL pelo ID e adiciona o produto na minha migrate --> FUNCIONANDO
+Route::post('product-add/{productId}', 'ServicesAPIVtexController@addProductVtex');
 
-//? Adiciona todos os produtos da URL para a Migrate
-Route::get('product-add', 'ServicesAPIVtexController@addAllProducts');
-//? Rota para listagem de produtos da migrates
+//? Rota para listagem de produtos da minha migrate --> FUNCIONANDO
 Route::get('product-list', 'ServicesAPIVtexController@listProductVtex');
-
-Route::get('product-list-add', 'ServicesAPIVtexController@addProductVtex');
-
-//? Rota teste
-Route::get('search-test', 'ServicesAPIVtexController@addSearchVtexTest');
 
 //! Rota para testar 
 Route::get('test', 'APIPessoasController@test');

@@ -12,29 +12,35 @@ class ServicesAPIVtexController extends Controller
     protected $endpointSearch;
 
     public function __construct()
-    {
+    {   
         //? Controller API VTEX que utiliza o Service Search, podendo utilizar diversos Services Diferentes.
-        $this->endpointSearch = new VtexSearchService();  
+        $this->endpointSearch = new VtexSearchService();
+
+        $httpClient = new \GuzzleHttp\Client([
+            'base_uri' => 'http://loja.chillibeans.com.br/api/catalog_system/pub/products/search?Rayban',
+            'verify' => false
+        ]);
     }
     
 
     public function listagemSearchVtex()
-    {
-        $result = $this->endpointSearch->searchServiceVtex("https://loja.chillibeans.com.br/api/catalog_system/pub/products/search?Rayban");
+    {  
+        $result = $this->endpointSearch->searchServiceVtex("http://loja.chillibeans.com.br/api/catalog_system/pub/products/search?Rayban");
 
         return $result;
     }
 
     public function addAllProducts()
     {
-        $result = $this->endpointSearch->findProducts("https://loja.chillibeans.com.br/api/catalog_system/pub/products/search?Rayban");
+        $result = $this->endpointSearch->findProducts("http://loja.chillibeans.com.br/api/catalog_system/pub/products/search?Rayban");
 
         Product::create();
     }
 
-    public function addProductVtex(){
-        $product = $this->endpointSearch->findVtexProductById("https://loja.chillibeans.com.br/api/catalog_system/pub/products/search?Rayban");
-        return Product::create($product);
+    public function addProductVtex($productId){
+        $product = $this->endpointSearch->findVtexProductById($productId, "http://loja.chillibeans.com.br/api/catalog_system/pub/products/search?Rayban");
+
+        return $product;
         //return response()->json(['products'=>$product], 200);
     } 
     
