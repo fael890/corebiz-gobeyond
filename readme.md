@@ -1,1 +1,1 @@
-![alt text](https://github.com/fael890/corebiz-gobeyond/blob/master/insigths.png?raw=true)
+![alt text](https://github.com/fael890/corebiz-gobeyond/blob/master/insights.png?raw=true)
