@@ -32,7 +32,7 @@ Route::get('listagem-pessoa', 'APIPessoasController@listagemDePessoas')->middlew
 Route::get('listagem-pessoa/{id}', 'APIPessoasController@listagemDePessoasById')->middleware('authenticate-api');
 
 //? Rota para cadastrar.
-Route::post('cadastro-pessoa','APIPessoasController@cadastraPessoa');
+Route::post('cadastro-pessoa', 'APIPessoasController@cadastraPessoa');
 
 //? Rota para atualizar.
 Route::put('atualizar-pessoa/{id}', 'APIPessoasController@atualizarPessoa');

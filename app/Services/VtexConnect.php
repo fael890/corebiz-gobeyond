@@ -10,8 +10,7 @@ trait VtexConnect {
     
     public function connectGet($url)
     {        
-        $result = Http::accept('application/json')->get($url);
-        return $result;
+        return Http::accept('application/json')->get($url);
     }
 
 }

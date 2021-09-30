@@ -16,6 +16,7 @@ class ServicesAPIVtexController extends Controller
         //? Controller API VTEX que utiliza o Service Search, podendo utilizar diversos Services Diferentes.
         $this->endpointSearch = new VtexSearchService();
 
+        //? Comando abaixo é utilizado para remover erro de certificado no postman
         $httpClient = new \GuzzleHttp\Client([
             'base_uri' => 'http://loja.chillibeans.com.br/api/catalog_system/pub/products/search?Rayban',
             'verify' => false
@@ -25,23 +26,11 @@ class ServicesAPIVtexController extends Controller
 
     public function listagemSearchVtex()
     {  
-        $result = $this->endpointSearch->searchServiceVtex("http://loja.chillibeans.com.br/api/catalog_system/pub/products/search?Rayban");
-
-        return $result;
-    }
-
-    public function addAllProducts()
-    {
-        $result = $this->endpointSearch->findProducts("http://loja.chillibeans.com.br/api/catalog_system/pub/products/search?Rayban");
-
-        Product::create();
+        return $this->endpointSearch->searchServiceVtex("http://loja.chillibeans.com.br/api/catalog_system/pub/products/search?Rayban");
     }
 
     public function addProductVtex($productId){
-        $product = $this->endpointSearch->findVtexProductById($productId, "http://loja.chillibeans.com.br/api/catalog_system/pub/products/search?Rayban");
-
-        return $product;
-        //return response()->json(['products'=>$product], 200);
+        return $this->endpointSearch->findVtexProductById($productId, "http://loja.chillibeans.com.br/api/catalog_system/pub/products/search?Rayban");
     } 
     
     public function listProductVtex(){

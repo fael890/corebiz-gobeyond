@@ -9,7 +9,7 @@ use App\Models\Product;
 class VtexSearchService {
 
     use VtexConnect;
-    public $productId;
+    protected $productId;
 
     //? função que mostra apenas o Id, name e brand de todos os produtos da url
     public function searchServiceVtex($url)
@@ -47,7 +47,7 @@ class VtexSearchService {
             ];
         })->values();
     }
-
+    //! o parametro $productId, recebe o ID de um produto da URL Chillibeans
     public function findVtexProductById($productId, $url){
         $product = $this->connectGet($url)->collect();
 
