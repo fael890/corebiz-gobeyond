@@ -14,9 +14,6 @@ Essa aplicação foi feita com base em um curso chamado back-end na prática.
 <p><b>MVC</b> -> a arquitetura de software padrão do Laravel.</p>
     
     
-<h1>Paths</h1>
-    
-    
 <h1>PHP insights</h1>
 
 ![alt text](https://github.com/fael890/corebiz-gobeyond/blob/master/insights.png?raw=true)
