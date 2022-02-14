@@ -7,7 +7,7 @@ Objetivo: no decorrer do curso foram introduzidos assuntos teóricos, como, meto
     
 <h1>Tecnologias</h1>
     
-<p>PHP e Laravel -> para realizar a manipulação dos dados de uma API e a criação de uma API.</p>
+<p><b>PHP e Laravel</b> -> para realizar a manipulação dos dados de uma API e a criação de uma API.</p>
     
 <p>Docker -> utilizado para fazer a configuração do ambiente de trabalho.</p>
     
