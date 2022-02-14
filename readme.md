@@ -1,5 +1,3 @@
-![alt text](https://github.com/fael890/corebiz-gobeyond/blob/master/insights.png?raw=true)
-
 <h1>Contexto<h1>
 Essa aplicação foi feita com base em um curso chamado back-end na prática.
 
@@ -17,3 +15,6 @@ Objetivo: no decorrer do curso foram introduzidos assuntos teóricos, como, meto
     
     
 <h1>Paths<h1>
+    
+    
+<h1>PHP insights<h1>
